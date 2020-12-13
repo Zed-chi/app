@@ -1,0 +1,17 @@
+.profile__avatar-img {
+    position: relative;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 0;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  
+    /* Оверлей при наведении*/
+  .profile__avatar-img:hover {
+    transition: opacity 0.7s ease 0.1s;
+    background-color: black;
+  }
