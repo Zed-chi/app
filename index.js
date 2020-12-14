@@ -37,25 +37,23 @@ form.addEventListener('submit', formSubmitHandler);
 
 
 // https://github.com/taniarascia/sandbox/blob/master/tab/js/scripts.js
-let itemsArray = []
-localStorage.setItem('items', JSON.stringify(itemsArray))
-const data = JSON.parse(localStorage.getItem('items'))
 
 function formSubmitHandler (e) {
-e.preventDefault()
-itemsArray.push(inputName.value,inputLastName.value)
-localStorage.setItem('items', JSON.stringify(itemsArray))
+    e.preventDefault()
+    itemsArray.push(inputName.value,inputLastName.value)
+    localStorage.setItem('items', JSON.stringify(itemsArray))
 }
 
-buttonReset.addEventListener('click', function() {
-    localStorage.clear()
-    restetValue()
-  })
+buttonReset.addEventListener(
+    'click', function() {
+        localStorage.clear();
+        restetValue();
+    }
+)
 
-  let items
-if (localStorage.getItem('items')) {
-  items = JSON.parse(localStorage.getItem('items'))
+if (localStorage.getItem('items')) {  
+  const data = JSON.parse(localStorage.getItem('items'));
 } else {
-  items = []
+  const data = [];
 }
 
