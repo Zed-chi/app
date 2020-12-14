@@ -1,22 +1,28 @@
 let profileName = document.querySelector('.profile__name')
 let profileLastName = document.querySelector('.profile__lastname')
+let profileCountry = document.querySelector('.handing__text')
 
 let form = document.querySelector('.form')
 let input = document.querySelector('.form__input')
 let inputName = document.querySelector('.form__contact-name')
 let inputLastName = document.querySelector('.form__contact-lastname')
+let inputCounty = document.querySelector('.form__contact-county')
 let buttonSubmit = document.querySelector('.form__submit')
 let buttonReset = document.querySelector('.profile-reset')
+
 
 
 function saveValue() {
     profileName.textContent = inputName.value;
     profileLastName.textContent = inputLastName.value;
+    profileCountry.textContent = inputCounty .value;
 }
+
 
 function restetValue() {
     profileName.textContent = "Введите ваше имя";
     profileLastName.textContent = "Введите вашу фамилию";
+    profileCountry.textContent = "Ваш город"
 }
 
 
@@ -30,6 +36,7 @@ buttonSubmit.addEventListener('click', saveValue);
 form.addEventListener('submit', formSubmitHandler);
 
 
+// https://github.com/taniarascia/sandbox/blob/master/tab/js/scripts.js
 let itemsArray = []
 localStorage.setItem('items', JSON.stringify(itemsArray))
 const data = JSON.parse(localStorage.getItem('items'))
@@ -39,7 +46,6 @@ e.preventDefault()
 itemsArray.push(inputName.value,inputLastName.value)
 localStorage.setItem('items', JSON.stringify(itemsArray))
 }
-
 
 buttonReset.addEventListener('click', function() {
     localStorage.clear()
@@ -53,21 +59,3 @@ if (localStorage.getItem('items')) {
   items = []
 }
 
-//Добавляем или изменяем значение:
-// localStorage.setItem('name', 'inputName.value'); //теперь у вас в localStorage хранится ключ "myKey" cо значением "myValue"
-
-//Выводим его в консоль:
-// var localValue = localStorage.getItem('myKey');
-// console.log(localValue); //"myValue"
-
-//удаляем:
-//localStorage.removeItem("myKey");
-
-//очищаем все хранилище
-//localStorage.clear()
-
-//То же самое, только с квадратными скобками:
-
-//localStorage["Ключ"] = "Значение" //установка значения
-//localStorage["Ключ"] // Получение значения
-//delete localStorage["Ключ"] // Удаление значения
